@@ -13,7 +13,6 @@ __pycache__/
 *.sqlite3
 *.db
 
-Dockerfile*
 docker-compose.override.yml
 
 node_modules/
