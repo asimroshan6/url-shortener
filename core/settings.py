@@ -6,6 +6,7 @@ load_dotenv()
 class Settings:
     DATABASE_URL = os.getenv("DATABASE_URL")
     REDIS_URL = os.getenv("REDIS_URL")
+    BASE_URL = os.getenv("BASE_URL")
 
 
 settings = Settings()

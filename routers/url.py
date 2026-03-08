@@ -9,6 +9,7 @@ from services.enc_base62 import encode_base62
 from services.redis_client import get_redis
 from services.slow_api_client import limiter
 from services.analytics_service import save_click
+from core.settings import settings
 
 router = APIRouter(tags=["URL Management"])
 
@@ -24,7 +25,7 @@ async def parse_url(url_input: UrlInput, request: Request,db: Session = Depends(
         db.refresh(url)
         
         short_code = encode_base62(num=url.id)
-        url.short_url = f"127.0.0.1:8000/{short_code}"
+        url.short_url = f"{settings.BASE_URL}/{short_code}"
         db.commit()
 
         return {"original_url": url.original_url, "short_url": url.short_url}
@@ -53,7 +54,7 @@ async def redirect(code: str, request: Request, background_tasks: BackgroundTask
     if cached_url:
         return RedirectResponse(url=cached_url)
         
-    url = db.query(Url).filter(Url.short_url == f"127.0.0.1:8000/{code}").first()
+    url = db.query(Url).filter(Url.short_url == f"{settings.BASE_URL}/{code}").first()
     if url:
         await redis_client.setex(code, 3600, url.original_url)
         return RedirectResponse(url=url.original_url)
