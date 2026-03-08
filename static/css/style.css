@@ -1,0 +1,145 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.container {
+  text-align: center;
+  max-width: 420px;
+  width: 100%;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+p {
+  opacity: 0.9;
+}
+
+.card {
+  background: #ffffff;
+  color: #333;
+  padding: 25px;
+  border-radius: 14px;
+  margin-top: 2px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 0.95rem;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #667eea;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background: #5a67d8;
+}
+
+#result {
+  margin-top: 15px;
+  display: flex;
+  gap: 8px;
+}
+
+#result input {
+  flex: 1;
+}
+
+.copy {
+  width: auto;
+  padding: 0 16px;
+  background: #48bb78;
+}
+
+.copy:hover {
+  background: #38a169;
+}
+
+.hidden {
+  display: none;
+}
+
+.error {
+  color: #e53e3e;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+/* Container for the stats section to add spacing */
+.stats-container {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+/* Secondary button style that matches your main button's shape */
+.btn-stats {
+    background: transparent;
+    color: #667eea;
+    border: 2px solid #667eea;
+    width: 100%;
+    padding: 10px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-stats:hover {
+    background: #f0f2ff;
+    transform: translateY(-1px);
+}
+
+/* Style for the displayed number */
+#statsResult {
+    margin-top: 12px;
+    padding: 12px;
+    background: #f8fafc;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #4a5568;
+    border: 1px dashed #cbd5e0;
+}
+
+#clickCount {
+    color: #764ba2;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Smooth reveal animation */
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
